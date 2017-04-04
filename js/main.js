@@ -1,29 +1,36 @@
 //alert("hola");
-var bombas= document.getElementsByName("bomba");
-var pistaNum= document.getElementsByName("num");
-var btnVacio= document.getElementsByName("vacio");
-
-console.log(bombas);
 
 function numero(){
-    pistaNum.value="x";
-alert("Bomba cerca CUIDADO!!!");
+alert("Bomba cerca CUIDADO!!!")
+pistaNum.innerHTML="x";
 }
 
 function vacio(){
-    btnVacio.style= "background-color: #FF9900"; 
-
+    this.style.backgroundColor= "teal"; 
 }
+
 function bomba(){
     alert("Kabooooooom!!!!! GAME OVER");
 }
 
 function play(){
-    alert("Jugemos!!!!");
+    alert("Let's play!!!!");
+}
+
+var bombas= document.getElementsByName("bomba");
+for (var i = 0; i < bombas.length; i++) {
+	bombas[i].addEventListener("click",bomba);
+}
+
+var pistaNum= document.getElementsByName("num");
+for (var i = 0; i < pistaNum.length; i++) {
+	pistaNum[i].addEventListener("click",numero);
+}
+
+var btnVacio= document.getElementsByName("vacio");
+for (var i = 0; i <  btnVacio.length; i++) {
+	 btnVacio[i].addEventListener("click",vacio);
 }
 
 
-bombas[0].addEventListener( 'click,bomba);
-//pistaNum.addEventListener("click",numero);
-//btnVacio.addEventListener("click",vacio);
-document.addEventListener("click",play);
+//document.addEventListener("click",play);
