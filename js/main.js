@@ -1,20 +1,32 @@
 //alert("hola");
+var botones= document.getElementsByTagName("button");
 
 function numero(){
-alert("Bomba cerca CUIDADO!!!")
-pistaNum.innerHTML="x";
+    event.stopPropagation();
+    alert("Bomba cerca CUIDADO!!!")
+    this.innerHTML=this.value;
 }
 
 function vacio(){
+    event.stopPropagation();
     this.style.backgroundColor= "teal"; 
 }
 
 function bomba(){
+    event.stopPropagation();
     alert("Kabooooooom!!!!! GAME OVER");
+    for(var i =0 ;i<botones.length;i++){
+    botones[i].disabled=true;
+  }
+
 }
 
 function play(){
-    alert("Let's play!!!!");
+    alert("Let's play!!!! \nRegresa al tablero a jugar");
+}
+
+function reinicia(){
+     location.reload();
 }
 
 var bombas= document.getElementsByName("bomba");
@@ -33,4 +45,7 @@ for (var i = 0; i <  btnVacio.length; i++) {
 }
 
 
-//document.addEventListener("click",play);
+document.addEventListener("click",play);
+
+var reload= document.getElementById("reload");
+reload.addEventListener("click",reinicia);
